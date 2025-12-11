@@ -31,8 +31,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Git e Github
 - Figma
 
-## 💻 Projeto
-
 O DevLinks é um agregador de links para usar como cartão de visitas online.
-
-Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
