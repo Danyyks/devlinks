@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devlinks</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main id="container">
+      <header id="profile">
+        <img
+          src="./assets/avatar.jpg"
+          alt="Foto de Dany Jonathan Bueno, sorrindo e usando óculos."
+        />
+        <div id="infos">
+          <h1>Dany Jonathan Bueno</h1>
+          <p>👨🏻‍💻 Dev Full-Stack em formação</br>
+          📍 Brasil</p>
+        </div>
+      </header>
+
+      <div id="switch">
+        <button
+          onclick="toggleMode()"
+          aria-label="Ativar modo claro/escuro"
+        ></button>
+        <span> </span>
+      </div>
+
+      <ul>
+        <li>
+          <a href="https://wa.me/5511933400707" target="_blank">Fale comigo</a>
+        </li>
+        <li><a href="#">Em breve</a></li>
+        <li><a href="#">Em breve</a></li>
+        <li><a href="#">Em breve</a></li>
+      </ul>
+      <div id="social-links">
+        <a
+          href="https://github.com/Danyyks"
+          target="_blank"
+          aria-label="Acessar perfil no Github"
+        >
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+
+        <a
+          href="https://www.instagram.com/danyyjonathan/"
+          target="_blank"
+          aria-label="Acessar perfil no Instagram"
+        >
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/danyyjonathan/"
+          target="_blank"
+          aria-label="Acessar perfil no Linkedin"
+        >
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </div>
+
+      <footer>
+        Feito com <span>♥</span> pela
+        <a href="https://rocketseat.com.br" target="_blank">Rocketseat</a>
+      </footer>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

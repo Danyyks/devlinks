@@ -1,0 +1,252 @@
+body {
+  /* Define a imagem de fundo para a versão mobile (dark mode por padrão) */
+  /* Esta é uma propriedade abreviada (shorthand) para 'background' */
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; /* Define a imagem, impede repetição, posiciona no topo/centro e faz cobrir toda a área */
+}
+
+/* Seletor universal: aplica estas regras a TODOS os elementos da página */
+* {
+  margin: 0; /* Remove todas as margens externas padrão dos elementos */
+  padding: 0; /* Remove todos os preenchimentos internos padrão dos elementos */
+  box-sizing: border-box; /* Faz com que padding e border não aumentem o tamanho total (largura/altura) do elemento */
+}
+
+/* Pseudo-classe :root - Define variáveis CSS globais que podem ser usadas em todo o documento. */
+/* Estas são as variáveis para o tema escuro (dark mode) */
+:root {
+  --text-color: white; /* Cor do texto principal */
+  --bg-color: #010412; /* Cor de fundo principal (substitui a imagem de fundo inicial) */
+  --stroke-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Cor da borda dos elementos (com 50% de transparência) */
+  --surface-color: #f4dfa8; /* Cor de fundo para superfícies como botões e links */
+  --surface-color-hover: #f7b58a; /* Cor das superfícies quando o mouse passa por cima (hover) */
+  --highlight-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Cor de destaque para o hover dos ícones e do switch */
+  --switch-bg: url(./assets/MoonStars.svg); /* Imagem de fundo para o botão do switch (ícone de lua) */
+}
+
+/* Regras para quando a classe .light está aplicada no elemento <html> */
+/* Estas variáveis sobrescrevem as do :root para ativar o tema claro (light mode) */
+.light {
+  --text-color: black; /* Cor do texto principal para o modo claro */
+  --bg-color: #f4dfa8; /* Cor de fundo principal para o modo claro */
+  --stroke-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Cor da borda para o modo claro (com 50% de transparência) */
+  --surface-color: #e0e0e0; /* Cor de fundo para superfícies no modo claro */
+  --surface-color-hover: #d1d1d1; /* Cor das superfícies no hover para o modo claro */
+  --highlight-color: rgba(0, 0, 0, 0.1); /* Cor de destaque para o modo claro */
+  --switch-bg: url(./assets/Sun.svg); /* Imagem de fundo para o botão do switch (ícone de sol) */
+}
+
+body {
+  /* Define o fundo do corpo da página usando a variável --bg-color. */
+  /* Se a classe .light estiver ativa, usará a cor do modo claro, senão, a do modo escuro. */
+  background: var(--bg-color); /* Aplica a cor de fundo definida na variável */
+  height: 100vh; /* Define a altura do body para 100% da altura da viewport (tela visível) */
+}
+
+/* Estiliza todos os elementos (*) dentro do body */
+body * {
+  font-family: "Inter", sans-serif; /* Define a família da fonte para 'Inter' e uma fonte sans-serif como fallback */
+  color: var(
+    --text-color
+  ); /* Define a cor do texto usando a variável --text-color */
+}
+
+/* Estilização do container principal */
+#container {
+  width: 100%; /* O container ocupará 100% da largura do seu elemento pai (o body) */
+  max-width: 588px; /* A largura máxima do container será de 588px, para não ficar muito largo em telas grandes */
+  margin-top: 56px; /* Margem de 56px no topo */
+  margin-right: auto; /* Margem direita automática */
+  margin-bottom: auto; /* Margem inferior automática */
+  margin-left: auto; /* Margem esquerda automática (o 'auto' nas laterais centraliza o bloco horizontalmente) */
+  padding: 0 24px; /* Preenchimento interno de 0 no topo/base e 24px nas laterais */
+}
+
+/* Estilização da seção de perfil */
+#profile {
+  text-align: center; /* Centraliza o conteúdo de texto e elementos inline (como a imagem) */
+  padding: 24px; /* Preenchimento interno de 24px em todos os lados */
+}
+
+/* Estilização da imagem de perfil */
+#profile img {
+  width: 112px; /* Largura da imagem */
+  height: 112px; /* Altura da imagem */
+  border-radius: 50%; /* Transforma a borda quadrada em um círculo perfeito */
+}
+
+/* Estilização do parágrafo dentro do perfil */
+#profile p {
+  font-weight: 500; /* Define o peso da fonte como 'medium' */
+  line-height: 24px; /* Define a altura da linha para melhor legibilidade */
+  margin-top: 24px; /* Adiciona uma margem de 24px no topo do parágrafo */
+}
+
+/* Estilização da div de informações adicionais */
+#infos {
+  margin-top: 16px; /* Margem de 16px no topo */
+  line-height: 24px; /* Altura da linha */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilização do container do botão switch */
+#switch {
+  position: relative; /* Define um contexto de posicionamento para os filhos com 'position: absolute' */
+  width: 64px; /* Largura do container do switch */
+  margin: 4px auto; /* Margem de 4px no topo/base e centralizado horizontalmente */
+}
+
+/* Estilização do botão dentro do switch */
+#switch button {
+  width: 32px; /* Largura do botão */
+  height: 32px; /* Altura do botão */
+  background: white var(--switch-bg) no-repeat center; /* Fundo branco, com a imagem da variável --switch-bg, sem repetir e centralizada */
+  border: 0; /* Remove a borda padrão do botão */
+  border-radius: 50%; /* Deixa o botão redondo */
+  position: absolute; /* Posiciona o botão em relação ao pai (#switch) */
+  top: 50%; /* Posiciona o topo do botão no meio do pai */
+  left: 0; /* Posição inicial à esquerda */
+  z-index: 1; /* Coloca o botão na frente do 'span' */
+  transform: translateY(
+    -50%
+  ); /* Move o botão 50% de sua própria altura para cima, para centralizá-lo verticalmente de forma precisa */
+  animation: slide-back 0.4s; /* Aplica a animação 'slide-back' com duração de 0.4s */
+}
+
+/* Estilização do botão do switch quando o modo claro está ativo */
+.light #switch button {
+  /* Aplica a animação 'slide-in' e mantém o estado final da animação (graças ao 'forwards') */
+  animation: slide-in 0.4s forwards;
+}
+
+/* Efeito de hover no botão do switch */
+#switch button:hover {
+  /* Adiciona um contorno (outline) ao redor do botão quando o mouse passa por cima */
+  outline: 8px solid var(--highlight-color);
+}
+
+/* Estilização do 'trilho' do switch (o elemento span) */
+#switch span {
+  display: block; /* Faz o span se comportar como um bloco, ocupando a largura definida */
+  width: 64px; /* Largura do trilho */
+  height: 24px; /* Altura do trilho */
+  background: var(--surface-color); /* Cor de fundo usando a variável */
+  border: 1px solid var(--stroke-color); /* Borda de 1px usando a variável de cor */
+  backdrop-filter: blur(
+    4px
+  ); /* Aplica um desfoque no que estiver atrás do elemento (efeito de vidro) */
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /* Prefixo para compatibilidade com navegadores mais antigos (Safari) */
+  border-radius: 9999px; /* Um valor alto para garantir que as bordas fiquem totalmente arredondadas */
+}
+
+/* Estilização da lista de links */
+ul {
+  list-style: none; /* Remove os marcadores (bolinhas) da lista */
+  display: flex; /* Ativa o layout flexbox */
+  flex-direction: column; /* Organiza os itens da lista em uma coluna (um abaixo do outro) */
+  gap: 16px; /* Cria um espaçamento de 16px entre cada item da lista */
+  padding: 24px 0; /* Preenchimento interno de 24px no topo/base e 0 nas laterais */
+}
+
+/* Estilização dos links (<a>) dentro dos itens da lista (<li>) */
+ul li a {
+  display: flex; /* Ativa o flexbox para o link */
+  align-items: center; /* Centraliza o conteúdo do link verticalmente */
+  justify-content: center; /* Centraliza o conteúdo do link horizontalmente */
+  padding: 16px 24px; /* Preenchimento interno para criar a área do botão */
+  background: var(--surface-color); /* Cor de fundo do link/botão */
+  border: 1px solid var(--stroke-color); /* Borda do link/botão */
+  border-radius: 8px; /* Arredonda os cantos do link/botão */
+  backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+  -webkit-backdrop-filter: blur(4px); /* Prefixo para compatibilidade */
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  color: #010412; /* Define a cor do texto do link (neste caso, não usa a variável --text-color) */
+  font-weight: 500; /* Peso da fonte 'medium' */
+  transition: background 0.2s; /* Adiciona uma transição suave de 0.2s para a propriedade 'background' */
+}
+
+/* Pseudo-classe para o efeito de hover nos links da lista */
+ul li a:hover {
+  background: var(
+    --surface-color-hover
+  ); /* Muda a cor de fundo ao passar o mouse */
+  border: 1.5px solid var(--text-color); /* Muda a borda ao passar o mouse */
+}
+
+/* Estilização da seção de links sociais */
+#social-links {
+  display: flex; /* Ativa o flexbox */
+  justify-content: center; /* Centraliza os ícones horizontalmente */
+  font-size: 24px; /* Define o tamanho da fonte (que controlará o tamanho dos ícones) */
+}
+
+/* Estilização dos links individuais de redes sociais */
+#social-links a {
+  display: flex; /* Permite centralizar o ícone dentro do link */
+  align-items: center; /* Centraliza o ícone verticalmente */
+  justify-content: center; /* Centraliza o ícone horizontalmente */
+  padding: 16px; /* Preenchimento interno para criar uma área de clique maior */
+  border-radius: 50%; /* Deixa a área de fundo do ícone redonda */
+  transition: background 0.2s; /* Transição suave para a cor de fundo */
+}
+
+/* Efeito de hover para os links sociais */
+#social-links a:hover {
+  background: var(
+    --highlight-color
+  ); /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Estilização do rodapé */
+footer {
+  padding: 24px 0; /* Preenchimento de 24px no topo/base */
+  text-align: center; /* Centraliza o texto do rodapé */
+  font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Estilização específica para o span (coração) no rodapé */
+footer span {
+  color: darkorchid; /* Define a cor do ícone de coração */
+}
+
+/* Media Query: Aplica regras CSS apenas quando a tela tem no mínimo 700px de largura */
+@media (min-width: 700px) {
+  /* Para telas maiores, a imagem de fundo não é mais necessária, pois usamos a cor sólida definida em --bg-color. */
+  /* Não há necessidade de redefinir as variáveis aqui, pois as definidas em :root e .light já funcionam. */
+}
+
+/* Animação para o botão do switch deslizar para a direita */
+@keyframes slide-in {
+  from {
+    left: 0; /* Posição inicial */
+  }
+  to {
+    left: 50%; /* Posição final (metade da largura do container #switch) */
+  }
+}
+
+/* Animação para o botão do switch deslizar de volta para a esquerda */
+@keyframes slide-back {
+  from {
+    left: 50%; /* Posição inicial */
+  }
+  to {
+    left: 0; /* Posição final */
+  }
+}
